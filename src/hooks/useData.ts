@@ -1,13 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+import { AxiosRequestConfig, CanceledError } from "axios";
 
 interface FetchResponse<T> {
   count: number;
   results: T[];
 }
 
-const useData = <T>(endpoint: string) => {
+const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: unknown[]) => {
   const [data, setData] = useState<T[]>([]); //Storing Game objects
   const [error, setError] = useState(""); // Error Messages
   const [isLoading, setLoading] = useState(false); // For loading skeleton
@@ -18,7 +19,7 @@ const useData = <T>(endpoint: string) => {
 
     setLoading(true);
     apiClient
-      .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
+      .get<FetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig })
       .then((res) => {
         setData(res.data.results);
         setLoading(false);
@@ -30,7 +31,7 @@ const useData = <T>(endpoint: string) => {
       });
 
     return () => controller.abort();
-  }, [endpoint]);
+  }, deps ? [...deps] : []);
 
   // To use it to other components
   return { data, error, isLoading };
