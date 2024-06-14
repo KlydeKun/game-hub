@@ -1,6 +1,8 @@
+import noImage from '../assets/no-image-placeholder.webp';
+
 const getCropppedImageUrl = (url: string) => {
   // Note: Fix issue about games don't have image
-  if (!url) return '';
+  if (!url) return noImage;
 
   const target = "media/";
   const index = url.indexOf(target) + target.length;
