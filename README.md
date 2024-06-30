@@ -96,7 +96,3 @@ Distributed under the MIT License. See LICENSE for more information.
 - RAWG
 
 Feel free to customize this `README.md` further to fit your specific needs and preferences!
-
-```
-
-```
