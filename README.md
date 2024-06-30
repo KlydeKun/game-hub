@@ -66,17 +66,18 @@ Contributions are what make the open source community such an amazing place to l
 
 2. Create your Feature Branch
 
-````sh
+```sh
 git checkout -b feature/AmazingFeature
 ```
 
-
 3. Commit your Changes
+
 ```sh
 git commit -m "Add some AmazingFeature"
 ```
 
 4. Push to the Branch
+
 ```sh
 git push origin feature/AmazingFeature
 ```
@@ -84,14 +85,18 @@ git push origin feature/AmazingFeature
 5. Open a Pull Request
 
 ## License
+
 Distributed under the MIT License. See LICENSE for more information.
 
 ## Acknowledgements
+
 - React
 - TypeScript
 - Chakra UI
 - RAWG
 
-
 Feel free to customize this `README.md` further to fit your specific needs and preferences!
-````
+
+```
+
+```
